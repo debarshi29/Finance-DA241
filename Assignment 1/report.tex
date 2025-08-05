@@ -1,0 +1,88 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{textcomp}
+% Then use Rs instead of Rs
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\title{Loan Repayment Analysis}
+\date{August 5, 2025}
+\author{}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+The objective is to determine the most cost-effective loan option among various banks and interest rate models, considering a principal of Rs20,00,000 and a 20-year tenure.
+
+\section{Methodology}
+The simulation models three distinct interest rate scenarios:
+
+\begin{itemize}
+    \item \textbf{Scenario 1: Purely Fixed Interest Rate}: The interest rate remains constant for the entire 20-year term. The simulation calculates a single EMI for the full tenure.
+    
+    \item \textbf{Scenario 2: Purely Variable Interest Rate}: This scenario serves as a common benchmark. The interest rate is modeled with a fixed margin of 2.0\% and an initial repo rate of 6.50\%. The repo rate component is subject to a stochastic process, changing every two months.
+    
+    \item \textbf{Scenario 3: Hybrid (Fixed + Variable) Rate}: The loan begins with a fixed interest rate for an initial period (2-5 years, depending on the bank) and then transitions to the variable rate model from Scenario 2 for the remainder of the tenure.
+\end{itemize}
+
+The simulation was run for a total of 1000 iterations for all variable and hybrid scenarios to ensure a stable and reliable average repayment amount. The banks and their specific rates used in the simulation are:
+
+\begin{itemize}
+    \item \textbf{SBI}: Fixed Rate (9.25\%), Hybrid Rate (8.95\% for 36 months)
+    \item \textbf{PNB}: Fixed Rate (9.50\%), Hybrid Rate (8.90\% for 60 months)
+    \item \textbf{HDFC Bank}: Fixed Rate (8.70\%), Hybrid Rate (8.70\% for 24 months)
+    \item \textbf{Axis Bank}: Fixed Rate (14.00\%), Hybrid Rate (8.85\% for 24 months)
+    \item \textbf{Bank of Baroda}: Fixed Rate (9.50\%), Hybrid Rate (9.25\% for 36 months)
+\end{itemize}
+
+\section{Analysis of Results}
+The simulations yielded the following total estimated repayment amounts for each bank and scenario:
+
+\subsection{Scenario 1: Full Fixed Rate}
+\begin{center}
+\begin{tabular}{lc}
+\toprule
+\textbf{Bank} & \textbf{Total Repayment} \\
+\midrule
+SBI & Rs 43,96,160.80 \\
+PNB & Rs 44,74,229.70 \\
+HDFC Bank & Rs 42,26,510.03 \\
+Axis Bank & Rs 59,68,899.89 \\
+Bank of Baroda & Rs 44,74,229.70 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{RECOMMENDATION:} HDFC Bank offers the lowest estimated repayment for a purely fixed-rate loan.
+
+\subsection{Scenario 2: Pure Variable Rate}
+This scenario is a common benchmark against which other options can be compared. The average total repayment across 1000 simulations was:
+
+\textbf{Common Benchmark:} Rs 41,62,306.06
+
+\subsection{Scenario 3: Hybrid (Fixed + Variable) Rate}
+\begin{center}
+\begin{tabular}{lc}
+\toprule
+\textbf{Bank} & \textbf{Total Repayment} \\
+\midrule
+SBI & Rs 41,96,834.65 \\
+PNB & Rs 42,22,044.44 \\
+HDFC Bank & Rs 41,85,391.76 \\
+Axis Bank & Rs 41,71,594.84 \\
+Bank of Baroda & Rs 42,29,210.85 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{RECOMMENDATION:} Axis Bank, despite a high fixed rate in the first scenario, has the lowest estimated repayment in the hybrid scenario.
+
+\section{Overall Conclusion}
+Upon analyzing all three scenarios, the lowest overall estimated repayment is found in the Hybrid Rate scenario. Specifically, Axis Bank provides the most favorable estimated total repayment at Rs 41,71,594.84, closely followed by the common benchmark variable rate. While HDFC Bank is the best option for a purely fixed-rate loan, its hybrid offering is surpassed by Axis Bank's.
+
+Therefore, for the given parameters and simulation models, the most financially sound choice is the Hybrid loan from Axis Bank.
+
+\end{document}
